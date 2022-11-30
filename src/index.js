@@ -1,18 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import './polyfill'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Betting from "./components/betting/Betting";
+import BettingTileInfo from "./components/betting/BettingTileInfo";
+import { Web3ReactProvider } from "@web3-react/core";
+import getLibrary from "./utils/getLibrary"
+import "./polyfill";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+     <Web3ReactProvider getLibrary={getLibrary}>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="" element={<App />}></Route>
+        <Route exact path="/betting" element={<Betting />}></Route>
+        <Route path="/betting-tile-info" element={<BettingTileInfo />}></Route>
+      </Routes>
+    </BrowserRouter>
+    </Web3ReactProvider>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ 

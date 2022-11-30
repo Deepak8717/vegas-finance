@@ -1,38 +1,452 @@
-.App {
-  text-align: center;
+@import url("https://use.fontawesome.com/releases/v5.0.6/css/all.css");
+@font-face {
+  font-family: "Monkstead";
+  src: url("../src/assets/Monkstead\ Round\ FREE/Monkstead Round.ttf");
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap");
+.base-color {
+  background: linear-gradient(
+    223.39deg,
+    #250c05 -5.65%,
+    #59280d 52.26%,
+    #260d06 96.72%
+  );
+}
+.font-monkstead {
+  font-family: "Monkstead";
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  z-index: 100;
+  background: #250c05;
+}
+.navbar li:hover {
+  background: -webkit-linear-gradient(#f97e25, #f9e125);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.wallet-popup{
+  background: linear-gradient(266.44deg, #f9e125 68.55%, #f97e25 102.45%);
+}
+.walletpop-overlay{
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.metamask-icon{
+  background: url("../src/assets/metamask-icon.svg") no-repeat;
+  background-size: 100% 100%;
+  width: 125px;
+  height: 200px;
+  margin: 5px;
+}
+.wallet-connet{
+  background: url("../src/assets/wallet-connect.svg") no-repeat;
+  background-size: 100% 100%;
+  width: 180px;
+  height: 200px;
+  margin: 15px;
+}
+.logo {
+  background: url("./assets/logo\ 1.svg");
+  width: 200px;
+  height: 157px;
+  position: absolute;
+  top: -99%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  z-index: 100;
+}
+.vegas-hero {
+  padding-top: 100px;
+  position: relative;
+  background: linear-gradient(
+    223.39deg,
+    #250c05 -5.65%,
+    #59280d 52.26%,
+    #260d06 96.72%
+  );
+  mix-blend-mode: lighten;
+  overflow: hidden;
+}
+.light-waves {
+  position: absolute;
+  z-index: 0;
+  width: 50%;
+  height: 100%;
+  left: 15%;
+  top: -8%;
+  mix-blend-mode: screen;
+}
+.treasure-hunt {
+  background: url("./assets/Lightbox.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 300px;
+}
+.treasure-hunt-heading {
+  background: linear-gradient(266.44deg, #f9e125 68.55%, #f97e25 102.45%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.heading {
+  font-family: "Monkstead";
+  font-weight: 400;
+  font-size: 76px;
+  line-height: 108px;
+}
+.explore-btn {
+  width: 100px;
+  background-image: linear-gradient(to bottom right, #f97e25, #f9e125);
+  padding: 5px;
+  box-shadow: inset 3px 3px #f9e125, inset -3px -3px #f9e125;
+  border-radius: 25px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.treasure-hunt-countdown {
+  max-width: 400px;
+  width: 100%;
+  height: 150px;
+  background: #f9e125;
+  box-shadow: inset -3px -5px #f97e25;
+}
+.prepare-for-battle {
+  background: linear-gradient(257.97deg, #f9e125 32.62%, #f97e25 129.84%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.btn-wolfies {
+  width: 200px;
+}
+.champion-image {
+  width: 200px;
+  height: 200px;
+  background: url("assets/Current-champion.svg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  mix-blend-mode: screen;
+  margin: auto;
+}
+.btn-betting {
+  min-width: 100px;
+  padding: 5px 10px;
+  border-radius: 30px;
+  border: 6px solid #f9e125;
+  font-weight: bold;
+  margin: 10px;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+.btn-betting.all {
+  background: linear-gradient(98.72deg, #f97e25 -1.47%, #f9e125 93.81%);
+  color: #250c05;
+}
+.btn-previous-event {
+  background: linear-gradient(
+    153.77deg,
+    #f97e25 -11.72%,
+    rgba(249, 225, 37, 0) 103.85%
+  );
+  border-radius: 30px;
+}
+.events {
+  color: #000000;
+  background-image: linear-gradient(to bottom right, #f97e25, #f9e125);
+  box-shadow: inset -3px -5px #f97e25;
+}
+.treasure-hunt-heading.rules {
+  font-weight: bold;
+  background: linear-gradient(257.97deg, #f9e125 32.62%, #f97e25 129.84%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.toggle-menu-dropdown {
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  top: 100px;
+  z-index: 10;
+  background: #250c05;
+  padding: 10px 18px;
+}
+
+/* betting */
+.betting-overlay {
+  background: radial-gradient(
+      217.11% 195.59% at 131.11% 40.34%,
+      #250c05 0%,
+      rgba(249, 126, 37, 0) 100%
+    )
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  mix-blend-mode: lighten;
+}
+.betting-tile-team-score.betting-completed-overlay {
+  background: rgba(0, 0, 0, 0.4);
+  mix-blend-mode: luminosity;
+  border-radius: 30px;
+}
+.betting-date-picker-custom {
+  background: linear-gradient(266.44deg, #f9e125 68.55%, #f97e25 102.45%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  line-height: 20px;
+  letter-spacing: 0.04em;
+  position: relative;
+}
+.betting-date-picker-custom:after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f073";
+  color: #555;
+  padding: 0 5px;
+}
+::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  color: transparent;
+  background: transparent;
+}
+.betting-searchbox::placeholder {
+  background: linear-gradient(266.44deg, #f9e125 68.55%, #f97e25 102.45%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  line-height: 20px;
+  letter-spacing: 0.04em;
+}
+.betting-tile-rectangle-bottom {
+  background: url("/src/assets/betting-tile-rectangle-bottom.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(100%);
+}
+.betting-tile-date {
+  background: url("../src/assets/betting-title-date.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.betting-tile-title {
+  background: url("../src/assets/betting-tile-title.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.betting-tile-team-score {
+  background: url("../src/assets/betting-tile-team-score.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.betting-tile-team-score-overlay {
+  background: url("../src/assets/betting-team-score-overlay.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.betting-team-score {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  padding: 15px;
+}
+.floating {
+  width: 40px;
+  height: 40px;
+}
+.floating:nth-child(2) {
+  animation: raise2 2s ease infinite;
+}
+.btn-bet {
+  background: url("../src/assets/btn-bet.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* poolinfo */
+.pool-banner {
+  background: url("../src/assets/betting-tile-info.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+@keyframes raise2 {
+  0% {
+    transform: translate(150px, 150px) rotate(156deg);
+  }
+  50% {
+    transform: translate(0px, 700px) rotateZ(380deg);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+.floating:nth-child(3) {
+  animation: raise3 3s ease infinite;
+  animation-delay: -3s;
+}
+@keyframes raise3 {
+  0% {
+    transform: translate(150px, 150px) rotate(156deg);
+  }
+  50% {
+    transform: translate(200px, 700px) rotateZ(380deg);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+.floating:nth-child(4) {
+  animation: raise4 2s ease infinite;
+  animation-delay: -3s;
+}
+@keyframes raise4 {
+  0% {
+    transform: translate(150px, 0px) rotate(156deg);
+  }
+  50% {
+    transform: translate(100px, 700px) rotateZ(380deg);
+  }
+  100% {
+    transform: scale(0);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes raise5 {
+  0% {
+    transform: translate(150px, 150px);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: translate(200px, 700px) rotateZ(380deg);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+.floating:nth-child(6) {
+  animation: raise6 2s ease infinite;
+}
+@keyframes raise6 {
+  0% {
+    transform: translate(150px, -100px);
+  }
+  50% {
+    transform: translate(100px, 700px) rotateZ(380deg);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+.floating:nth-child(7) {
+  animation: raise7 2s ease infinite;
+}
+@keyframes raise7 {
+  0% {
+    transform: translate(150px, 100px);
+  }
+  50% {
+    transform: translate(-200px, 700px) rotateZ(380deg);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+.animate__animated.animate__flash {
+  animation-delay: 5s;
+}
+/* Responsive Design  */
+
+@media only screen and (max-width: 450px) {
+  .logo {
+    width: 150px;
+    height: 120px;
+  }
+  .light-waves {
+    width: 100%;
+    height: 500px;
+    left: 12%;
+    top: 1%;
+  }
+  .btn-betting {
+    padding: 3px 6px;
+    border-radius: 15px;
+    border: 3px solid #f9e125;
+    font-weight: bold;
+    margin: 5px;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: "5px";
+  }
+}
+
+@media screen and (min-width: 451px) and (max-width: 640px) {
+  .light-waves {
+    width: 100%;
+    height: 500px;
+    left: 5%;
+    top: 3%;
+  }
+}
+
+@media screen and (min-width: 641px) and (max-width: 767px) {
+  .light-waves {
+    width: 100%;
+    height: 500px;
+    left: 5%;
+    top: 3%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .light-waves {
+    width: 50%;
+    height: 500px;
+    left: 3%;
+    top: 4%;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .light-waves {
+    width: 50%;
+    height: 500px;
+    left: 3%;
+    top: 4%;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1536px) {
+  .light-waves {
+    width: 50%;
+    height: 500px;
+    left: 2%;
+    top: 5%;
+  }
+}
+@media screen and (min-width: 1537px) {
+  .light-waves {
+    width: 50%;
+    height: 500px;
+    left: 9%;
+    top: 5%;
   }
 }
