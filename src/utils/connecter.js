@@ -6,9 +6,9 @@ export const injected = new InjectedConnector({
   // supportedChainIds: [1, 4, 56, 97],
 });
 
-console.log(InjectedConnector)
-  const {REACT_APP_CURRENT_CHAINID, REACT_APP_CURRENT_WALLETCONNECT_RPC} =  process.env
-  
+const { REACT_APP_CURRENT_CHAINID, REACT_APP_CURRENT_WALLETCONNECT_RPC } =
+  process.env;
+
 const ChainIDinString = parseInt(REACT_APP_CURRENT_CHAINID);
 
 export const walletconnect = new WalletConnectConnector({
@@ -16,7 +16,7 @@ export const walletconnect = new WalletConnectConnector({
     [ChainIDinString]: REACT_APP_CURRENT_WALLETCONNECT_RPC,
   },
   qrcode: true,
-  chainId: ChainIDinString, 
+  chainId: ChainIDinString,
   pollingInterval: POLLING_INTERVAL,
   bridge: "https://bridge.walletconnect.org",
   // supportedChainIds: [ChainIDinString],

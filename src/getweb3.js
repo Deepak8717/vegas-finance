@@ -4,10 +4,9 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
 const getWeb3 = async () => {
   let web3;
   const connectedWallet = localStorage.getItem("connectedWallet");
-  console.log("connectedwaller",connectedWallet);
 
   if (connectedWallet === "walletConnect") {
-    const {CURRENT_CHAINID, CURRENT_WALLETCONNECT_RPC }  = process.env 
+    const { CURRENT_CHAINID, CURRENT_WALLETCONNECT_RPC } = process.env;
     const ChainIDinString = parseInt(CURRENT_CHAINID);
 
     const provider = new WalletConnectProvider({

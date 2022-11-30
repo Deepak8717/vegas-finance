@@ -6,9 +6,20 @@ import useKingContract from "../hooks/useKingContract";
 import useERCContract from "../hooks/useERCContract";
 import { useEffect, useState } from "react";
 import Countdown from "react-countdown";
-const Banner = ({ nextround, isUserApproved }) => {
-  const date = new Date().getTime();
-  console.log("etime from banner", localStorage.getItem("gameendstime"));
+const Banner = ({
+  nextround,
+  isUserApproved,
+  approve,
+  bid,
+  totalAmount,
+  lastBidTime,
+  delay,
+  account,
+  claim,
+  bidAmount,
+  userBalance,
+  currentTime,
+}) => {
   return (
     <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 pt-8">
       <div className="w-[90%] max-w-[400px] mx-auto treasure-hunt my-4">
@@ -40,11 +51,7 @@ const Banner = ({ nextround, isUserApproved }) => {
         <div className="treasure-hunt-countdown p-4 flex justify-center items-center rounded-2xl">
           <div>
             <div className="text-center"></div>
-            {/* <div className="text-3xl font-bold text-[#5A290D]">
-              <span className="mx-2">6D</span>:<span className="mx-2">18H</span>
-              :<span className="mx-2">30M</span>
-            </div> */}
-            {date < nextround * 1000 ? (
+            {currentTime < nextround || nextround === 0 ? (
               <div>
                 <div className="text-center">Next round</div>
 
@@ -54,11 +61,33 @@ const Banner = ({ nextround, isUserApproved }) => {
                 />
               </div>
             ) : (
-              <div className="text-center">
-                <div className="text-3xl font-bold">Game is live</div>
-                Ends in:
-                <Countdown date={localStorage.getItem("gameendstime") * 1000} />
-              </div>
+              <>
+                {lastBidTime != 0 && currentTime - lastBidTime >= delay ? (
+                  <div className="text-center font-bold text-2xl">
+                    Game finished
+                  </div>
+                ) : (
+                  <div className="text-center font-bold text-2xl">
+                    <div>Game Live</div>
+
+                    {totalAmount == 0 ? (
+                      <p>Waiting for bids.</p>
+                    ) : (
+                      <>
+                        {currentTime < localStorage.getItem("gameendstime") && (
+                          <>
+                            <span className="mx-2">Ends in</span>
+                            <Countdown
+                              date={localStorage.getItem("gameendstime") * 1000}
+                              className="text-2xl font-bold"
+                            />
+                          </>
+                        )}
+                      </>
+                    )}
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>
@@ -76,23 +105,49 @@ const Banner = ({ nextround, isUserApproved }) => {
           industry . Lorem Ipsum has been the industry's standard dummy text
           ever since the 1500s, when an unknown printer took a ga centuries,
         </p>
-        {date < nextround * 1000 ? (
-          <button className="explore-btn btn-wolfies">
-            Starts in
-            <Countdown
-              date={localStorage.getItem("nextrounddata") * 1000}
-              className="font-bold mx-2"
-            />
-          </button>
-        ) : isUserApproved ? (
-          <button className="explore-btn btn-wolfies capitalize">
-            bid 5000 wolfies
-          </button>
+        {currentTime > nextround && account ? (
+          <div>
+            {isUserApproved ? (
+              <>
+                {lastBidTime !== 0 && currentTime - lastBidTime >= delay ? (
+                  <button
+                    className="explore-btn btn-wolfies capitalize"
+                    onClick={() => {
+                      claim();
+                    }}
+                  >
+                    Claim
+                  </button>
+                ) : (
+                  <button
+                    className="explore-btn btn-wolfies capitalize"
+                    onClick={() => {
+                      bid();
+                    }}
+                  >
+                    {bidAmount} $wolfies
+                  </button>
+                )}
+              </>
+            ) : (
+              <button
+                className="explore-btn btn-wolfies capitalize"
+                onClick={() => {
+                  approve();
+                }}
+              >
+                Approve
+              </button>
+            )}
+          </div>
         ) : (
-          <button className="explore-btn btn-wolfies capitalize">
-            approve
-          </button>
+          <></>
         )}
+        {/* {account && (
+          <p className="mt-2  text-[16px] leading-[24.66px] font-bold black">
+            Your Balance {userBalance} $CANDY
+          </p>
+        )} */}
       </div>
     </div>
   );
